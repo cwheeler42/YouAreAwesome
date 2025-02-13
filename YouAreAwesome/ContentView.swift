@@ -11,8 +11,8 @@ struct ContentView: View {
     
     @State private var message = ""
     @State private var imageName = ""
-    @State private var imageNumber = 1
-    @State private var messageNumber = 0
+    @State private var lastImageNumber = -1
+    @State private var lastMessageNumber = -1
 
     let imagePrefixString = "moveInWeekend - "
     
@@ -46,21 +46,22 @@ struct ContentView: View {
                                 "You are a Really Really Long Text String to Fit Here!",
                                 "Stop Chanting!"]
 
-                messageNumber = Int.random(in: 1...messages.count) - 1
+                var messageNumber: Int
+                repeat {
+                    messageNumber = Int.random(in: 1...messages.count) - 1
+                } while messageNumber == lastMessageNumber
+                lastMessageNumber = messageNumber
                 message = messages[messageNumber]
-//                messageNumber += 1
+                print(messageNumber)
 
-//                if messageNumber >= messages.count {
-//                    messageNumber = 0
-//                }
-
-//                imageNumber += 1
-//                if imageNumber > 10 {
-//                    imageNumber = 1
-//                }
-                imageNumber = Int.random(in: 1...10)
+                var imageNumber: Int
+                repeat {
+                    imageNumber = Int.random(in: 1...10)
+                } while imageNumber == lastImageNumber
+                lastImageNumber = imageNumber
                 imageName = "\(imagePrefixString)\(imageNumber)"
-                
+                print(imageNumber)
+
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
