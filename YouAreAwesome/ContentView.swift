@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var message = "You are Great!"
-    @State private var imageName = ""
+    @State private var message = ""
+    @State private var imageNumber = 1
+
+    let imagePrefixString = "moveInWeekend - "
     
     var body: some View {
         
@@ -18,7 +20,7 @@ struct ContentView: View {
             
             Spacer()
             
-            Image(imageName)
+            Image("\(imagePrefixString)\(imageNumber)")
                 .resizable()
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 15))
@@ -33,10 +35,16 @@ struct ContentView: View {
             Spacer()
             
             Button("Press Me!") {
-                let image0 = "moveInWeekend - 1"
-                let image1 = "moveInWeekend - 2"
+                let message0 = "You are Great!"
+                let message1 = "You are Awesome!"
                 
-                imageName = ( imageName == image0 ? image1 : image0 )
+                message = ( message == message0 ? message1 : message0)
+
+                imageNumber += 1
+                if imageNumber > 10 {
+                    imageNumber = 1
+                }
+                
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
