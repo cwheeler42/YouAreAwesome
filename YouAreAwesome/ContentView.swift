@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var message = ""
+    @State private var message = "You Are Awesome!"
     @State private var imageNumber = 1
 
     let imagePrefixString = "moveInWeekend - "
