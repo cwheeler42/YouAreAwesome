@@ -45,18 +45,20 @@ struct ContentView: View {
                                 "You are Magical!",
                                 "You are a Really Really Long Text String to Fit Here!",
                                 "Stop Chanting!"]
-                
+
+                messageNumber = Int.random(in: 1...messages.count) - 1
                 message = messages[messageNumber]
-                messageNumber += 1
+//                messageNumber += 1
 
-                if messageNumber >= messages.count {
-                    messageNumber = 0
-                }
+//                if messageNumber >= messages.count {
+//                    messageNumber = 0
+//                }
 
-                imageNumber += 1
-                if imageNumber > 10 {
-                    imageNumber = 1
-                }
+//                imageNumber += 1
+//                if imageNumber > 10 {
+//                    imageNumber = 1
+//                }
+                imageNumber = Int.random(in: 1...10)
                 imageName = "\(imagePrefixString)\(imageNumber)"
                 
             }
